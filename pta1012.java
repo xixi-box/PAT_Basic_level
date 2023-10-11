@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class niuke02 {
+public class pta1012 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -17,34 +17,34 @@ public class niuke02 {
         }
 
         //A2
-        int count = 0;
+        int countA2 = 0;
         for (int j = 0; j < n; j++) {
             if (src[j] % 5 == 1) {
-                if (count % 2 == 0)
+                if (countA2 % 2 == 0)
                     src[1011] += src[j];
                 else {
                     src[1011] -= src[j];
                 }
-                count++;
+                countA2++;
             }
         }
+
         //A3
         for (int j = 0; j < n; j++) {
             if (src[j] % 5 == 2) {
                 src[1012]++;
             }
         }
-
         //A4
-        count = 0;
+        int countA4 = 0;
         for (int j = 0; j < n; j++) {
             if (src[j] % 5 == 3) {
                 src[1013] += src[j];
-                count++;
+                countA4++;
             }
         }
-        if (count != 0) {
-            src[1013] = src[1013] / count;
+        if (countA4 != 0) {
+            src[1013] = src[1013] / countA4;
         }
         //A5
         for (int j = 0; j < n; j++) {
@@ -52,21 +52,30 @@ public class niuke02 {
                 src[1014] = src[j] > src[1014] ? src[j] : src[1014];
             }
         }
-        for (int i = 1010; i < 1015; i++) {
-            if (src[i] == 0) {
-                if (i == 1014)
-                    System.out.printf("N");
-                else
-                    System.out.printf("N ");
-            } else if (i == 1013) {
-                System.out.printf("%.1f ", src[i]);
-            } else {
-                if (i == 1014)
-                    System.out.printf("%d", (int) src[i]);
-                else
-                    System.out.printf("%d ", (int) src[i]);
-
-            }
-        }
+        //A1
+        if (src[1010] != 0)
+            System.out.printf("%d ", (int) src[1010]);
+        else
+            System.out.print("N ");
+        //A2
+        if (countA2 != 0)
+            System.out.printf("%d ", (int) src[1011]);
+        else
+            System.out.printf("N ");
+        //A3
+        if (src[1012] != 0)
+            System.out.printf("%d ", (int) src[1012]);
+        else
+            System.out.print("N ");
+        //A4
+        if (countA4 != 0)
+            System.out.printf("%.1f ", src[1013]);
+        else
+            System.out.printf("N ");
+        //A5
+        if (src[1014] != 0)
+            System.out.printf("%d", (int) src[1014]);
+        else
+            System.out.print("N");
     }
 }
