@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -10,10 +12,13 @@ import java.util.TreeMap;
  */
 
 public class pta1047 {
+    //这段代码的超时问题可能是由于在循环中进行了多次 map 查询操作导致的。
+    // 每次调用 map.get(teamNumber) 都会进行一次查询，这在数据量大的情况下可能会导致效率问题。
+    // 你可以尝试将查询结果存储在一个变量中，以减少查询次数。以下是修改后的代码：
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(bufferedReader.readLine());
-        TreeMap<Integer, Integer> map = new TreeMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         int MaxScore = -1;
         int MaxTeam = -1;
         for (int i = 0; i < n; i++) {
