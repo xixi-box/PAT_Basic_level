@@ -41,14 +41,10 @@ public class pta1059 {
     }
 
     public static boolean isPrime(int N) {
-        if (N < 2) {
-            return false;
-        } else if (N == 2) {
-            return true;
-        } else if (N % 2 == 0) {
+        if (N == 1) {
             return false;
         } else {
-            for (int i = 3; i <= Math.sqrt(N); i += 2) {
+            for (int i = 2; i <= Math.sqrt(N); i++) {
                 if (N % i == 0) {
                     return false;
                 }
